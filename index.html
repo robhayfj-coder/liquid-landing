@@ -238,28 +238,119 @@
         </div>
       </div>
 
-      <!-- Placeholder store cards (we'll replace with your CSV later) -->
-      <div class="mt-6 grid md:grid-cols-2 gap-4">
-        <div class="bg-white rounded-2xl p-4 border border-slate-100 flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-[#F0F7EC] flex items-center justify-center text-[#2A7010]">🏬</div>
-          <div class="flex-1">
-            <div class="font-semibold">Retailer Name #1</div>
-            <div class="text-sm text-slate-600">123 Market Road, Suva</div>
-            <div class="text-xs text-slate-500">Mon–Sat, 8am–6pm · (000) 000 000</div>
+      <!-- Papa Parse (CSV parser) -->
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script>
+  // Elements
+  const divisionEl = document.getElementById('divisionSelect');
+  const provinceEl = document.getElementById('provinceSelect');
+  const townEl = document.getElementById('townSelect');
+  const resultsEl = document.getElementById('storeResults');
+
+  let stores = [];
+
+  // Load CSV (expects headers: Division,Province,CityTownVillage,Store Name,Phone)
+  Papa.parse('retailers.csv', {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: (res) => {
+      stores = res.data.map(r => ({
+        Division: (r.Division || '').trim(),
+        Province: (r.Province || '').trim(),
+        CityTownVillage: (r.CityTownVillage || '').trim(),
+        name: (r['Store Name'] || '').trim(),
+        phone: (r.Phone || '').trim()
+      })).filter(s => s.Division && s.Province && s.CityTownVillage && s.name);
+      initFilters();
+    }
+  });
+
+  function initFilters() {
+    // Populate Division
+    const divisions = [...new Set(stores.map(s => s.Division))].sort();
+    addOptions(divisionEl, divisions);
+    divisionEl.disabled = false;
+
+    divisionEl.addEventListener('change', onDivisionChange);
+    provinceEl.addEventListener('change', onProvinceChange);
+    townEl.addEventListener('change', renderResults);
+  }
+
+  function addOptions(select, items) {
+    const placeholder = select.options[0]?.text || 'Select';
+    select.innerHTML = `<option value="">${placeholder}</option>`;
+    items.forEach(v => {
+      const opt = document.createElement('option');
+      opt.value = v;
+      opt.textContent = v;
+      select.appendChild(opt);
+    });
+  }
+
+  function onDivisionChange() {
+    const div = divisionEl.value;
+    const provinces = [...new Set(stores.filter(s => s.Division === div).map(s => s.Province))].sort();
+    addOptions(provinceEl, provinces);
+    provinceEl.disabled = !div;
+
+    // reset downstream
+    townEl.innerHTML = '<option value="">Select City/Town/Village</option>';
+    townEl.disabled = true;
+    resultsEl.innerHTML = '';
+  }
+
+  function onProvinceChange() {
+    const div = divisionEl.value;
+    const prov = provinceEl.value;
+    const towns = [...new Set(
+      stores.filter(s => s.Division === div && s.Province === prov).map(s => s.CityTownVillage)
+    )].sort();
+    addOptions(townEl, towns);
+    townEl.disabled = !prov;
+    resultsEl.innerHTML = '';
+  }
+
+  function renderResults() {
+    const div = divisionEl.value;
+    const prov = provinceEl.value;
+    const town = townEl.value;
+
+    const matches = stores.filter(s =>
+      (!div || s.Division === div) &&
+      (!prov || s.Province === prov) &&
+      (!town || s.CityTownVillage === town)
+    );
+
+    if (!matches.length) {
+      resultsEl.innerHTML = '<div class="text-slate-600">No stores found for this selection.</div>';
+      return;
+    }
+
+    resultsEl.innerHTML = matches.map(cardHTML).join('');
+  }
+
+  function cardHTML(s) {
+    const phone = s.phone ? ` · ${escapeHTML(s.phone)}` : '';
+    return `
+      <div class="bg-white rounded-2xl p-4 border border-slate-100 flex items-start gap-4">
+        <div class="w-10 h-10 rounded-xl bg-[#F0F7EC] flex items-center justify-center text-[#2A7010]">🏬</div>
+        <div class="flex-1">
+          <div class="font-semibold">${escapeHTML(s.name)}</div>
+          <div class="text-sm text-slate-600">
+            ${escapeHTML(s.CityTownVillage)}, ${escapeHTML(s.Province)} — ${escapeHTML(s.Division)}${phone}
           </div>
-          <a class="text-[#2A7010] text-sm font-semibold hover:underline" href="#">Directions</a>
-        </div>
-        <div class="bg-white rounded-2xl p-4 border border-slate-100 flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-[#F0F7EC] flex items-center justify-center text-[#2A7010]">🏬</div>
-          <div class="flex-1">
-            <div class="font-semibold">Retailer Name #2</div>
-            <div class="text-sm text-slate-600">456 River Lane, Lautoka</div>
-            <div class="text-xs text-slate-500">Mon–Sat, 8am–6pm · (000) 000 000</div>
-          </div>
-          <a class="text-[#2A7010] text-sm font-semibold hover:underline" href="#">Directions</a>
         </div>
       </div>
-    </div>
+    `;
+  }
+
+  function escapeHTML(str = '') {
+    return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+</script>
+
   </section>
 
   <!-- FAQ -->
@@ -348,3 +439,4 @@
   </script>
 </body>
 </html>
+
