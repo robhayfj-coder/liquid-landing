@@ -42,9 +42,6 @@
           Liquid Compost contains over 1 billion beneficial soil bacteria in every drop... that's like having billions of tiny farm workers under your plants helping you achieve better harvests and bigger profits!
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#locator" class="inline-flex items-center gap-2 bg-[#47BC15] text-white font-semibold px-5 py-3 rounded-2xl shadow-sm hover:bg-[#2A7010] transition">
-            Find a Store Near You <span>→</span>
-          </a>
           <a href="#results" class="inline-flex items-center gap-2 bg-white text-[#2A7010] font-semibold px-5 py-3 rounded-2xl border border-[#BEE8AA] hover:bg-[#F0F7EC] transition">
             See the Results
           </a>
@@ -359,11 +356,6 @@
     </div>
   </footer>
 
-  <!-- Sticky CTA -->
-  <a href="#locator" class="fixed bottom-4 right-4 inline-flex items-center gap-2 bg-[#2A7010] text-white px-5 py-3 rounded-2xl shadow-lg hover:bg-[#235C0D]">
-    Find a Store <span>→</span>
-  </a>
-
   <!-- Papa Parse (CSV parser) -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
@@ -532,10 +524,10 @@
     proofNext.addEventListener("click", nextProof);
     proofPrev.addEventListener("click", prevProof);
 
-    // autoplay every 2 seconds (change 3000 to 5000 if you want 5s)
+    // autoplay every 3 seconds (change 3000 to 5000 if you want 5s)
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!reduceMotion && PROOF_IMAGES.length > 1) {
-      setInterval(nextProof, 2000);
+      setInterval(nextProof, 3000);
     }
 
     // initial render
@@ -545,6 +537,7 @@
 
 </body>
 </html>
+
 
 
 
