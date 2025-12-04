@@ -75,45 +75,70 @@
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section class="py-12 md:py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Why Farmers Choose Liquid Compost</h2>
-        <p class="mt-2 text-slate-600">Simple to use. Powerful results. No complicated changes.</p>
+  <!-- SOCIAL PROOF – HARVEST SLIDESHOW -->
+<section id="social-proof" class="py-12 md:py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="max-w-2xl">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Farmers are harvesting like this with Liquid Compost</h2>
+      <p class="mt-2 text-slate-600">
+        These are real harvests from farmers across Fiji using Liquid Compost alongside their normal routine.
+      </p>
+    </div>
+
+    <div class="mt-8 grid md:grid-cols-[3fr,2fr] gap-8 items-center">
+      <!-- Slideshow -->
+      <div class="relative">
+        <div class="overflow-hidden rounded-3xl shadow-lg border border-slate-100 bg-slate-100">
+          <img
+            id="proofSlide"
+            src="./2.jpg"
+            alt="Liquid Compost harvest results"
+            class="w-full h-full max-h-[420px] object-cover"
+          />
+        </div>
+
+        <!-- Prev / Next buttons -->
+        <button
+          id="proofPrev"
+          type="button"
+          class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 rounded-full w-9 h-9 flex items-center justify-center shadow-md"
+        >
+          ‹
+        </button>
+        <button
+          id="proofNext"
+          type="button"
+          class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 rounded-full w-9 h-9 flex items-center justify-center shadow-md"
+        >
+          ›
+        </button>
+
+        <!-- Counter -->
+        <div class="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+          <span id="proofIndex">1</span> / <span id="proofTotal">17</span>
+        </div>
       </div>
-      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 rounded-xl bg-[#F0F7EC] flex items-center justify-center text-[#2A7010] text-xl">🌱</div>
-            <h3 class="text-lg font-semibold">Faster, stronger growth</h3>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed">See your crops thrive from the very first cycle.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 rounded-xl bg-[#F0F7EC] flex items-center justify-center text-[#2A7010] text-xl">🛡️</div>
-            <h3 class="text-lg font-semibold">Fewer pests and diseases</h3>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed">Protect your plants and your profits.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 rounded-xl bg-[#F0F7EC] flex items-center justify-center text-[#2A7010] text-xl">💧</div>
-            <h3 class="text-lg font-semibold">Healthier soil for seasons to come</h3>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed">Restore natural balance beneath your feet.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 rounded-xl bg-[#F0F7EC] flex items-center justify-center text-[#2A7010] text-xl">💰</div>
-            <h3 class="text-lg font-semibold">More yield, more income</h3>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed">Bigger harvests mean real growth for your family.</p>
-        </div>
+
+      <!-- Copy alongside slideshow -->
+      <div class="space-y-4 text-sm md:text-base text-slate-700">
+        <p>
+          Every photo you see here comes from a real farmer who used Liquid Compost on their crops —
+          vegetables, chillies, watermelons, root crops and more.
+        </p>
+        <p>
+          Instead of promises, we prefer proof: heavier fruits, fuller branches, and cleaner fields with fewer
+          pest and disease losses.
+        </p>
+        <p class="font-semibold text-[#2A7010]">
+          Scroll through the results — then decide where you want your next harvest to be.
+        </p>
+        <a href="#locator" class="inline-flex items-center gap-2 bg-[#47BC15] text-white font-semibold px-5 py-3 rounded-2xl shadow-sm hover:bg-[#2A7010] transition">
+          Find a Store Near You <span>→</span>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- HOW IT WORKS -->
   <section id="how-it-works" class="py-12 md:py-16">
@@ -455,8 +480,74 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </script>
+  <script>
+  // ===== SOCIAL PROOF HARVEST SLIDESHOW =====
+  // Update paths here if your images live in a folder or use .png
+  const PROOF_IMAGES = [
+    "./1.jpg",
+    "./2.jpg",
+    "./3.jpg",
+    "./4.jpg",
+    "./5.jpg",
+    "./6.jpg",
+    "./7.jpg",
+    "./8.jpg",
+    "./9.jpg",
+    "./10.jpg",
+    "./11.jpg",
+    "./12.jpg",
+    "./13.jpg",
+    "./14.jpg",
+    "./15.jpg",
+    "./16.jpg",
+    "./17.jpg"
+  ];
+
+  const proofImg   = document.getElementById("proofSlide");
+  const proofPrev  = document.getElementById("proofPrev");
+  const proofNext  = document.getElementById("proofNext");
+  const proofIndex = document.getElementById("proofIndex");
+  const proofTotal = document.getElementById("proofTotal");
+
+  if (proofImg && proofPrev && proofNext && proofIndex && proofTotal) {
+    // preload
+    PROOF_IMAGES.forEach(src => { const img = new Image(); img.src = src; });
+
+    let idx = 0;
+    proofTotal.textContent = PROOF_IMAGES.length;
+
+    function renderProofSlide() {
+      proofImg.src = PROOF_IMAGES[idx];
+      proofIndex.textContent = idx + 1;
+    }
+
+    function nextProof() {
+      idx = (idx + 1) % PROOF_IMAGES.length;
+      renderProofSlide();
+    }
+
+    function prevProof() {
+      idx = (idx - 1 + PROOF_IMAGES.length) % PROOF_IMAGES.length;
+      renderProofSlide();
+    }
+
+    proofNext.addEventListener("click", nextProof);
+    proofPrev.addEventListener("click", prevProof);
+
+    // autoplay every 2 seconds (change 3000 to 5000 if you want 5s)
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion && PROOF_IMAGES.length > 1) {
+      setInterval(nextProof, 2000);
+    }
+
+    // initial render
+    renderProofSlide();
+  }
+</script>
+
 </body>
 </html>
+
 
 
 
