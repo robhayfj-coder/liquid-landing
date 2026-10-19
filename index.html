@@ -1,645 +1,93 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OrganicPlus – Liquid Compost</title>
-  <meta name="description" content="Liquid Compost helps farmers turn hard work into high yields — healthier plants, bigger harvests, and better profits." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#DE0F3F">
+  <title>Harvest Booster by OrganicPlus | Farm Stronger, Fiji</title>
+  <meta name="description" content="Meet OrganicPlus Harvest Booster, formerly Liquid Compost. Support soil health, flowering and fruiting. See Fiji farmer results and find a retailer near you.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="More flowers. More fruit. Stronger harvests. | OrganicPlus">
+  <meta property="og:description" content="Liquid Compost has a new look. Meet Harvest Booster by OrganicPlus and find your nearest Fiji retailer.">
+  <meta property="og:image" content="https://www.baywaterfiji.com/assets/harvest-booster-5l.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./site.js" defer></script>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-[#F8FAF8] to-white text-slate-900">
-
-  <!-- NAV -->
-  <header class="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="./logo.png" alt="OrganicPlus" class="h-9 w-auto" />
-        <span class="sr-only">OrganicPlus</span>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
-        <a href="#how-it-works" class="hover:text-[#2A7010]">How it works</a>
-        <a href="#results" class="hover:text-[#2A7010]">Results</a>
-        <a href="#testimonials" class="hover:text-[#2A7010]">Farmers</a>
-        <a href="#faq" class="hover:text-[#2A7010]">FAQ</a>
-      </nav>
-      <a href="#locator" class="inline-flex items-center gap-2 bg-[#47BC15] text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-sm hover:bg-[#2A7010] transition">
-        Find a Store <span>→</span>
-      </a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="announcement">LIQUID COMPOST HAS A NEW LOOK. <a href="#new-pack">MEET HARVEST BOOSTER ↗</a></div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#main" aria-label="OrganicPlus home"><img src="./logo.png" alt="OrganicPlus" width="312" height="263"></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="#benefits">Why Harvest Booster</a><a href="#results">Farmer results</a><a href="#how-to-use">How to use</a><a href="#faq">FAQs</a></nav>
+      <a class="button button-dark header-cta" href="#locator">Find a store <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-controls="mobileNav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
     </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden><a href="#benefits">Why Harvest Booster</a><a href="#results">Farmer results</a><a href="#how-to-use">How to use</a><a href="#faq">FAQs</a><a href="#locator">Find a store ↗</a></nav>
   </header>
-
-  <!-- HERO (original copy kept) -->
-  <section class="relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl md:text-5xl font-black leading-tight">
-          You Don't Need A Degree in Agriculture <span class="text-[#2A7010]">To Boost Your Harvests</span>
-        </h1>
-        <p class="mt-4 text-lg text-slate-700">
-          Liquid Compost contains over 1 billion beneficial soil bacteria in every drop... that's like having billions of tiny farm workers under your plants helping you achieve better harvests and bigger profits!
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#social-proof" class="inline-flex items-center gap-2 bg-white text-[#2A7010] font-semibold px-5 py-3 rounded-2xl border border-[#BEE8AA] hover:bg-[#F0F7EC] transition">
-            See the Results
-          </a>
-        </div>
-        <div class="mt-8 grid grid-cols-3 gap-4" id="results">
-          <div class="text-center">
-            <div class="text-3xl md:text-4xl font-extrabold text-[#2A7010]">75%</div>
-            <div class="text-sm md:text-base text-slate-600 mt-1">fewer pest &amp; disease losses</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl md:text-4xl font-extrabold text-[#2A7010]">+$2,000</div>
-            <div class="text-sm md:text-base text-slate-600 mt-1">average extra profit per season</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl md:text-4xl font-extrabold text-[#2A7010]">1B/ml</div>
-            <div class="text-sm md:text-base text-slate-600 mt-1">a billion soil bacteria in every drop</div>
-          </div>
-        </div>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title"><div class="container hero-grid">
+      <div class="hero-copy"><p class="eyebrow light">FIJI-MADE. FARMER-FOCUSED.</p>
+        <h1 id="hero-title">MORE FLOWERS.<br> MORE FRUIT.<br> STRONGER<br> HARVESTS.</h1>
+        <p class="hero-description">Your hard work deserves a stronger harvest. Give your soil and crops an extra boost with OrganicPlus Harvest Booster.</p>
+        <div class="hero-actions"><a class="button button-white" href="#locator">Find a store near you <span aria-hidden="true">↗</span></a><a class="text-link light" href="#results">See farmer results ↓</a></div>
+        <p class="hero-note">Use alongside your usual fertiliser or manure.</p>
       </div>
-
-      <div>
-        <!-- HERO PRODUCT IMAGE -->
-<div class="relative aspect-[4/3] md:aspect-[5/4] rounded-3xl overflow-hidden shadow-lg">
-  <img src="./hero2.png" alt="OrganicPlus Liquid Compost" class="absolute inset-0 w-full h-full object-cover" />
-</div>
-</div>     
+      <div class="hero-product"><div class="product-topline"><span>BIO-ACTIVE LIQUID COMPOST</span><span>5 LITRES</span></div><img class="pouch" src="./assets/harvest-booster-5l.png" alt="OrganicPlus Harvest Booster 5 litre spout pouch with white handle and cap" width="1254" height="1254" fetchpriority="high"><div class="product-caption"><span class="small-dot" aria-hidden="true"></span> SAME ORGANICPLUS PRODUCT. A BOLD NEW LOOK.</div></div>
+    </div></section>
+    <div class="benefit-strip" aria-label="Product benefits"><div class="container"><span>✓ Boosts harvests</span><span>✓ Supports flowering &amp; fruiting</span><span>✓ Supports soil health</span></div></div>
+    <section class="section rebrand" id="new-pack" aria-labelledby="rebrand-title"><div class="container rebrand-grid">
+      <div><p class="eyebrow">NEW NAME. FAMILIAR RESULTS.</p><h2 id="rebrand-title">YOU KNOW IT AS<br> LIQUID COMPOST.</h2></div>
+      <div class="rebrand-copy"><p class="large-copy">Now, look for <strong>Harvest Booster.</strong></p><p>Same OrganicPlus product. New name. New packaging. If Liquid Compost is already part of your farming routine, this is the pack to look for next.</p><a class="text-link" href="#locator">Find your nearest retailer ↗</a></div>
+    </div></section>
+    <section class="section benefits" id="benefits" aria-labelledby="benefits-title"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">GIVE YOUR HARD WORK AN EXTRA BOOST</p><h2 id="benefits-title">FROM YOUR SOIL.<br> TO YOUR HARVEST.</h2></div><p>Keep your usual fertiliser or manure programme. Add Harvest Booster to support your soil and crops along the way.</p></div>
+      <div class="benefits-grid">
+        <article class="benefit"><span class="index">01 /</span><div class="benefit-symbol" aria-hidden="true">✳</div><h3>Support your soil.</h3><p>A biologically active formula combining beneficial microorganisms and plant nutrients to support soil and crop health.</p></article>
+        <article class="benefit"><span class="index">02 /</span><div class="benefit-symbol" aria-hidden="true">✿</div><h3>Back your flowers<br> and fruit.</h3><p>Give flowering and fruiting crops an extra boost as they work towards your next harvest.</p></article>
+        <article class="benefit"><span class="index">03 /</span><div class="benefit-symbol" aria-hidden="true">↗</div><h3>Grow towards<br> your next goal.</h3><p>Easy to mix into your farming routine, whether you are growing for your family, your market stall or a bigger farm.</p></article>
       </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL PROOF – HARVEST SLIDESHOW -->
-<section id="social-proof" class="py-12 md:py-16 bg-white">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="max-w-2xl">
-      <h2 class="text-2xl md:text-3xl font-extrabold">Farmers are harvesting like this with Liquid Compost</h2>
-      <p class="mt-2 text-slate-600">
-        These are real harvests from farmers across Fiji using Liquid Compost alongside their normal routine.
-      </p>
-    </div>
-
-    <div class="mt-8 grid md:grid-cols-[3fr,2fr] gap-8 items-center">
-      <!-- Slideshow -->
-<div class="relative flex justify-center">
-  <div class="rounded-3xl shadow-lg border border-slate-100 bg-white p-0 overflow-hidden">
-    <img
-      id="proofSlide"
-      src="./2.jpg"
-      alt="Liquid Compost harvest results"
-      class="max-w-full h-auto object-contain"
-      style="max-height: 550px;"
-    />
-  </div>
-
-  <!-- Prev / Next buttons -->
-  <button
-    id="proofPrev"
-    type="button"
-    class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 rounded-full w-9 h-9 flex items-center justify-center shadow-md"
-  >
-    ‹
-  </button>
-  <button
-    id="proofNext"
-    type="button"
-    class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 rounded-full w-9 h-9 flex items-center justify-center shadow-md"
-  >
-    ›
-  </button>
-
-  <!-- Counter -->
-  <div class="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
-    <span id="proofIndex">1</span> / <span id="proofTotal">17</span>
-  </div>
-</div>
-
-      <!-- Copy alongside slideshow -->
-      <div class="space-y-4 text-sm md:text-base text-slate-700">
-        </p>
-        <p>
-          Instead of promises, we give proof: heavier fruits, greener leaves, and bigger harvests with less
-          pest and disease losses.
-        </p>
-        <p class="font-semibold text-[#2A7010]">
-          Scroll through the results — then decide where you want your next harvest to be.
-        </p>
-        <a href="#locator" class="inline-flex items-center gap-2 bg-[#47BC15] text-white font-semibold px-5 py-3 rounded-2xl shadow-sm hover:bg-[#2A7010] transition">
-          Find a Store Near You <span>→</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how-it-works" class="py-12 md:py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl md:text-3xl font-extrabold">How it works</h2>
-        <p class="mt-2 text-slate-600">From soil to success in three simple steps.</p>
-      </div>
-
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="text-[#2A7010] font-bold text-sm">Step 1</div>
-          <h3 class="text-lg font-semibold mt-1">Mix with water</h3>
-          <p class="mt-2 text-slate-600 text-sm">Apply 40ml Liquid Compost for every 1L of water. For 16L spray tank, use 600ml (same size as a small coke bottle). Measurements are also written on the back label of the bottle.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="text-[#2A7010] font-bold text-sm">Step 2</div>
-          <h3 class="text-lg font-semibold mt-1">Apply to soil and plants</h3>
-          <p class="mt-2 text-slate-600 text-sm">Spray the soil around your plants as well as the leaves. You can spray your plants at any stage - from seeds to fruiting.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="text-[#2A7010] font-bold text-sm">Step 3</div>
-          <h3 class="text-lg font-semibold mt-1">Repeat until harvest</h3>
-          <p class="mt-2 text-slate-600 text-sm">Apply every 2-4 weeks from planting to harvesting. Enjoy bigger, better harvests — and keep more of what you grow.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="py-12 md:py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Real Farmers. Real Results.</h2>
-        <p class="mt-2 text-slate-600">Across Fiji, farmers are joining the high-performance movement.</p>
-      </div>
-
-      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Ranji -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-start gap-4">
-            <img src="./ranji.jpg" alt="Ranji" class="w-12 h-12 rounded-full object-cover" />
-            <div>
-              <p class="text-slate-800 italic">“We noticed straight away the growth was fast, there were no insects or diseases, and we were harvesting much more. We’re really happy — it’s boosted our harvest and profit.”</p>
-              <p class="mt-3 text-sm font-medium text-slate-700">Ranji</p>
-              <p class="text-xs text-slate-500">Assorted Vegetables</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Saiasi -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-start gap-4">
-            <img src="./saiasi.jpg" alt="Saiasi" class="w-12 h-12 rounded-full object-cover" />
-            <div>
-              <p class="text-slate-800 italic">“I am witness to the positive impacts of Liquid Compost. The number of fruits per branch is amazing! This has allowed me to expand my farm to a commercial scale.”</p>
-              <p class="mt-3 text-sm font-medium text-slate-700">Saiasi</p>
-              <p class="text-xs text-slate-500">Chillies</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ujagar -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-start gap-4">
-            <img src="./ujagar.jpg" alt="Ujagar" class="w-12 h-12 rounded-full object-cover" />
-            <div>
-              <p class="text-slate-800 italic">“My harvest has more than doubled compared to last year from the same land. All of my watermelons are 13–18kg. I have used, and now I believe.”</p>
-              <p class="mt-3 text-sm font-medium text-slate-700">Ujagar</p>
-              <p class="text-xs text-slate-500">Watermelon</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Jo -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-start gap-4">
-            <img src="./jo.jpg" alt="Jo Sivo" class="w-12 h-12 rounded-full object-cover" />
-            <div>
-              <p class="text-slate-800 italic">“Before, I failed to produce a good harvest for the last 2 years. After using Liquid Compost together with my normal fertilizer, I managed to boost the size of my dalo to 3.4kg on average. I reduced my losses as there was no more dalo beetle, and best of all, my customers kept asking for more.”</p>
-              <p class="mt-3 text-sm font-medium text-slate-700">Jo Sivo</p>
-              <p class="text-xs text-slate-500">Root Crops</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Abdul -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <div class="flex items-start gap-4">
-            <img src="./abdul.jpg" alt="Abdul" class="w-12 h-12 rounded-full object-cover" />
-            <div>
-              <p class="text-slate-800 italic">“In all my years of farming, I have never harvested so many chillies from the same number of plants. The size is good, and there are no pests or diseases. I harvested more than double — more profit.”</p>
-              <p class="mt-3 text-sm font-medium text-slate-700">Abdul</p>
-              <p class="text-xs text-slate-500">Chillies</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- STORE LOCATOR (cascading dropdowns) -->
-  <section id="locator" class="py-12 md:py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Find Liquid Compost Near You</h2>
-        <p class="mt-2 text-slate-600">
-          Available in over 70 retail stores across Fiji. Select your Division, then Province, then City/Town/Village.
-        </p>
-      </div>
-
-      <!-- Filters -->
-      <div class="mt-6 grid md:grid-cols-3 gap-4">
-        <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Division</label>
-          <select id="divisionSelect" class="w-full px-4 py-3 rounded-2xl border border-slate-200 bg-white">
-            <option value="">Select Division</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Province</label>
-          <select id="provinceSelect" class="w-full px-4 py-3 rounded-2xl border border-slate-200 bg-white" disabled>
-            <option value="">Select Province</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">City/Town/Village</label>
-          <select id="townSelect" class="w-full px-4 py-3 rounded-2xl border border-slate-200 bg-white" disabled>
-            <option value="">Select City/Town/Village</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Results -->
-      <div id="storeResults" class="mt-6 grid md:grid-cols-2 gap-4"></div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-<section id="faq" class="py-12 md:py-16 bg-white">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="max-w-2xl">
-      <h2 class="text-2xl md:text-3xl font-extrabold">Questions, answered.</h2>
-      <p class="mt-2 text-slate-600">Straightforward answers to the questions farmers ask us most.</p>
-    </div>
-
-    <div class="mt-8 grid md:grid-cols-2 gap-4">
-      <!-- Q1: What can you use it on? -->
-      <details class="group border border-slate-200 rounded-xl p-4 bg-white">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium">What can you use Liquid Compost on?</span>
-          <span class="ml-3 text-slate-400 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          You can use Liquid Compost on most major crops farmers grow in Fiji — root crops like dalo, cassava, kumala, ginger and
-          yaqona, 3-month vegetables (like Chinese cabbage, lettuce and other leafy greens), fruiting vegetables
-          like eggplant and chillies, fruit trees, and crops like watermelon.
-          <br /><br />
-          Many farmers simply add it alongside their normal fertiliser program to give the soil and plants an extra boost.
-          Always follow the label and any specific crop advice from our team.
-        </p>
-      </details>
-
-      <!-- Q2: How many times do you use it? -->
-      <details class="group border border-slate-200 rounded-xl p-4 bg-white">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium">How many times do you use it?</span>
-          <span class="ml-3 text-slate-400 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          Liquid Compost works best when it’s used more than once in the crop cycle, not just a single spray.
-          A simple way to think about it:
-        </p>
-        <ul class="mt-3 text-slate-600 text-sm leading-relaxed list-disc pl-5 space-y-1">
-          <li><span class="font-semibold">3-month vegetables</span> (Chinese cabbage, lettuce, etc.): start early, then repeat every week through the season.</li>
-          <li><span class="font-semibold">Dalo, eggplant, watermelon</span>: start when plants are young and repeat through early growth and before strong flowering/fruiting.</li>
-          <li><span class="font-semibold">Yaqona and fruit trees</span>: use regularly in the growing season to keep soil life and root growth active.</li>
-        </ul>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          The exact number of sprays depends on the crop and your goals, so always follow the label and any program
-          recommended by OrganicPlus for your specific crop.
-        </p>
-      </details>
-
-      <!-- Q3: Where do you spray Liquid Compost? -->
-      <details class="group border border-slate-200 rounded-xl p-4 bg-white">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium">Where do you spray Liquid Compost?</span>
-          <span class="ml-3 text-slate-400 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          The two key places are:
-        </p>
-        <ul class="mt-3 text-slate-600 text-sm leading-relaxed list-disc pl-5 space-y-1">
-          <li><span class="font-semibold">On the soil around the plant</span> – so the beneficial soil life and nutrients reach the roots.</li>
-          <li><span class="font-semibold">Over the plant (foliar)</span> – a fine spray on the leaves helps the plant take up nutrients quickly.</li>
-        </ul>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          Many farmers do both: focus on the root zone and give a light spray on the leaves. Avoid spraying in the
-          hottest part of the day and always follow the mixing and safety instructions on the label.
-        </p>
-      </details>
-
-      <!-- Q4: Where can you find Liquid Compost? -->
-      <details class="group border border-slate-200 rounded-xl p-4 bg-white">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium">Where can you find Liquid Compost?</span>
-          <span class="ml-3 text-slate-400 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          Liquid Compost is available at over 70 agri-retailers across Fiji, including well-known places like
-          <span class="font-semibold">Hop Tiy in Suva</span> and <span class="font-semibold">Post Fiji post offices</span>,
-          as well as many rural and town agri-stores.
-        </p>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          Use the store locator above to find a retailer closest to your farm.
-        </p>
-        <a href="#locator" class="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-[#2A7010] hover:underline">
-          Open store locator <span>→</span>
-        </a>
-      </details>
-
-      <!-- Q5: How many bottles are required for 1 acre? -->
-      <details class="group border border-slate-200 rounded-xl p-4 bg-white">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium">How many bottles are required for 1 acre?</span>
-          <span class="ml-3 text-slate-400 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          The amount you need per acre depends mainly on how many plants you have, not just the size of the land.
-        </p>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          As a guide, farmers use roughly <span class="font-semibold">60&nbsp;ml of Liquid Compost solution per plant</span>
-          (at a <span class="font-semibold">1:25 mix</span> with water). At this rate, a
-          <span class="font-semibold">5&nbsp;litre bottle of Liquid Compost can cover roughly 2,085 plants.</span>
-        </p>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          That means, for example:
-        </p>
-        <ul class="mt-3 text-slate-600 text-sm leading-relaxed list-disc pl-5 space-y-1">
-          <li>1 acre of dalo with ~4,000 plants → about <span class="font-semibold">10&nbsp;litres</span> of Liquid Compost per application.</li>
-          <li>1 acre of eggplant with ~5,400 plants → about <span class="font-semibold">13&nbsp;litres</span> of Liquid Compost per application.</li>
-        </ul>
-        </p>
-      </details>
-
-      <!-- Q6: What does Liquid Compost do? -->
-      <details class="group border border-slate-200 rounded-xl p-4 bg-white">
-        <summary class="flex cursor-pointer list-none items-center justify-between">
-          <span class="font-medium">What does Liquid Compost actually do?</span>
-          <span class="ml-3 text-slate-400 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          Liquid Compost feeds both your soil and your plants. It combines quick-release nutrients with a very high
-          concentration of beneficial soil bacteria — around <span class="font-semibold">1&nbsp;billion per millilitre</span>.
-        </p>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          In simple terms, it helps:
-        </p>
-        <ul class="mt-3 text-slate-600 text-sm leading-relaxed list-disc pl-5 space-y-1">
-          <li><span class="font-semibold">Unlock nutrients</span> already in your soil so plants can use them more easily.</li>
-          <li><span class="font-semibold">Build stronger roots</span> that explore more soil and support bigger plants.</li>
-          <li><span class="font-semibold">Support plant health</span> so crops can handle stress better and suffer fewer pest and disease losses.</li>
-          <li><span class="font-semibold">Lift yield and quality</span>, so more of your hard work turns into marketable harvest and profit.</li>
-        </ul>
-        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          It’s not about replacing every other input overnight — it’s about making your soil more alive and your
-          fertiliser program work harder for you.
-        </p>
-      </details>
-    </div>
-  </div>
-</section>
-  
-
-  <!-- FINAL CTA -->
-  <section class="py-12 md:py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="rounded-3xl bg-[#47BC15] text-white p-8 md:p-12 shadow-md">
-        <div class="grid md:grid-cols-2 gap-6 items-center">
-          <div>
-            <h3 class="text-2xl md:text-3xl font-extrabold">Remember, you don't need an agriculture degree to be a high-performance farmer.</h3>
-            <p class="mt-2 text-[#F0F7EC]">Join thousands of Fijian farmers transforming their soil, their harvests, and their futures.</p>
-          </div>
-          <div class="flex md:justify-end">
-            <a href="#locator" class="inline-flex items-center gap-2 bg-white text-[#2A7010] font-semibold px-6 py-3 rounded-2xl shadow-sm hover:bg-[#F0F7EC]">
-              Find a Store <span>→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-10 border-t border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src="./logo.png" alt="OrganicPlus" class="h-8 w-auto" />
-        <span class="sr-only">OrganicPlus</span>
-      </div>
-      <p class="text-slate-500 text-sm">© <span id="year"></span> OrganicPlus. All rights reserved.</p>
-      <div class="flex gap-4 text-sm">
-        <a class="text-slate-500 hover:text-[#2A7010]" href="#">Privacy</a>
-        <a class="text-slate-500 hover:text-[#2A7010]" href="#">Terms</a>
-        <a class="text-slate-500 hover:text-[#2A7010]" href="#">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Papa Parse (CSV parser) -->
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-
-  <!-- Cascading dropdowns logic for retailers.csv -->
-  <script>
-    const divisionEl = document.getElementById('divisionSelect');
-    const provinceEl = document.getElementById('provinceSelect');
-    const townEl = document.getElementById('townSelect');
-    const resultsEl = document.getElementById('storeResults');
-
-    let stores = [];
-
-    // Expecting headers: Division,Province,CityTownVillage,Store Name,Phone
-    Papa.parse('retailers.csv', {
-      download: true,
-      header: true,
-      skipEmptyLines: true,
-      complete: (res) => {
-        stores = res.data.map(r => ({
-          Division: (r.Division || '').trim(),
-          Province: (r.Province || '').trim(),
-          CityTownVillage: (r.CityTownVillage || '').trim(),
-          name: (r['Store Name'] || '').trim(),
-          phone: (r.Phone || '').trim()
-        })).filter(s => s.Division && s.Province && s.CityTownVillage && s.name);
-        initFilters();
-      }
-    });
-
-    function initFilters() {
-      const divisions = [...new Set(stores.map(s => s.Division))].sort();
-      addOptions(divisionEl, divisions);
-      divisionEl.disabled = false;
-
-      divisionEl.addEventListener('change', onDivisionChange);
-      provinceEl.addEventListener('change', onProvinceChange);
-      townEl.addEventListener('change', renderResults);
-    }
-
-    function addOptions(select, items) {
-      const placeholder = select.options[0]?.text || 'Select';
-      select.innerHTML = `<option value="">${placeholder}</option>`;
-      items.forEach(v => {
-        const opt = document.createElement('option');
-        opt.value = v;
-        opt.textContent = v;
-        select.appendChild(opt);
-      });
-    }
-
-    function onDivisionChange() {
-      const div = divisionEl.value;
-      const provinces = [...new Set(stores.filter(s => s.Division === div).map(s => s.Province))].sort();
-      addOptions(provinceEl, provinces);
-      provinceEl.disabled = !div;
-
-      townEl.innerHTML = '<option value="">Select City/Town/Village</option>';
-      townEl.disabled = true;
-      resultsEl.innerHTML = '';
-    }
-
-    function onProvinceChange() {
-      const div = divisionEl.value;
-      const prov = provinceEl.value;
-      const towns = [...new Set(
-        stores.filter(s => s.Division === div && s.Province === prov).map(s => s.CityTownVillage)
-      )].sort();
-      addOptions(townEl, towns);
-      townEl.disabled = !prov;
-      resultsEl.innerHTML = '';
-    }
-
-    function renderResults() {
-      const div = divisionEl.value;
-      const prov = provinceEl.value;
-      const town = townEl.value;
-
-      const matches = stores.filter(s =>
-        (!div || s.Division === div) &&
-        (!prov || s.Province === prov) &&
-        (!town || s.CityTownVillage === town)
-      );
-
-      if (!matches.length) {
-        resultsEl.innerHTML = '<div class="text-slate-600">No stores found for this selection.</div>';
-        return;
-      }
-
-      resultsEl.innerHTML = matches.map(cardHTML).join('');
-    }
-
-    function cardHTML(s) {
-      const phone = s.phone ? ` · ${escapeHTML(s.phone)}` : '';
-      return `
-        <div class="bg-white rounded-2xl p-4 border border-slate-100 flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-[#F0F7EC] flex items-center justify-center text-[#2A7010]">🏬</div>
-          <div class="flex-1">
-            <div class="font-semibold">${escapeHTML(s.name)}</div>
-            <div class="text-sm text-slate-600">
-              ${escapeHTML(s.CityTownVillage)}, ${escapeHTML(s.Province)} — ${escapeHTML(s.Division)}${phone}
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function escapeHTML(str = '') {
-      return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-    }
-
-    // set footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</script>
-  <script>
-  // ===== SOCIAL PROOF HARVEST SLIDESHOW =====
-  // Update paths here if your images live in a folder or use .png
-  const PROOF_IMAGES = [
-    "./1.png",
-    "./2.png",
-    "./3.png",
-    "./7.png",
-    "./9.png",
-    "./10.png",
-    "./11.png",
-    "./12.png",
-    "./13.png",
-    "./14.png",
-    "./15.png",
-    "./16.png",
-    "./17.png"
-  ];
-
-  const proofImg   = document.getElementById("proofSlide");
-  const proofPrev  = document.getElementById("proofPrev");
-  const proofNext  = document.getElementById("proofNext");
-  const proofIndex = document.getElementById("proofIndex");
-  const proofTotal = document.getElementById("proofTotal");
-
-  if (proofImg && proofPrev && proofNext && proofIndex && proofTotal) {
-    // preload
-    PROOF_IMAGES.forEach(src => { const img = new Image(); img.src = src; });
-
-    let idx = 0;
-    proofTotal.textContent = PROOF_IMAGES.length;
-
-    function renderProofSlide() {
-      proofImg.src = PROOF_IMAGES[idx];
-      proofIndex.textContent = idx + 1;
-    }
-
-    function nextProof() {
-      idx = (idx + 1) % PROOF_IMAGES.length;
-      renderProofSlide();
-    }
-
-    function prevProof() {
-      idx = (idx - 1 + PROOF_IMAGES.length) % PROOF_IMAGES.length;
-      renderProofSlide();
-    }
-
-    proofNext.addEventListener("click", nextProof);
-    proofPrev.addEventListener("click", prevProof);
-
-    // autoplay every 3 seconds (change 3000 to 5000 if you want 5s)
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!reduceMotion && PROOF_IMAGES.length > 1) {
-      setInterval(nextProof, 3000);
-    }
-
-    // initial render
-    renderProofSlide();
-  }
-</script>
-
+    </div></section>
+    <section class="section results" id="results" aria-labelledby="results-title"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">FROM FARMS ACROSS FIJI</p><h2 id="results-title">REAL FARMERS.<br> REAL HARVESTS.</h2></div><p>The farmers. The crops. The harvests. See the photos our community has shared using OrganicPlus Liquid Compost, now called Harvest Booster.</p></div>
+      <div class="results-grid"><figure class="feature-farmer"><img src="./hero2.png" alt="Fiji farmer with a large watermelon and a bottle of OrganicPlus Liquid Compost" width="1024" height="1024" loading="lazy"><figcaption><span>GROWN IN FIJI</span><span>THE PRODUCT YOU ALREADY KNOW ↗</span></figcaption></figure><div class="farmer-story"><p class="eyebrow">A FARMER'S OWN WORDS</p><blockquote>“I am witness to the positive impacts of Liquid Compost. The number of fruits per branch is amazing! This has allowed me to expand my farm to a commercial scale.”</blockquote><div class="farmer-byline"><img src="./saiasi.jpg" alt="" width="64" height="64" loading="lazy"><p><strong>Saiasi</strong><span>Chilli farmer</span></p></div><p class="story-note">Shared under the product's former name, Liquid Compost. Individual farm results vary.</p></div></div>
+      <div class="gallery-heading"><h3>MORE FROM OUR FARMING COMMUNITY</h3><div class="gallery-controls"><span id="galleryPosition" class="gallery-count" aria-live="polite">01 / 13</span><button type="button" id="galleryPrev" class="icon-button" aria-label="Previous harvest photo">←</button><button type="button" id="galleryNext" class="icon-button" aria-label="Next harvest photo">→</button></div></div>
+      <div class="harvest-gallery" id="harvestGallery" tabindex="0" aria-label="Farmer harvest photographs; use arrow buttons or scroll to see more">
+        <figure><img src="./1.png" alt="Harvest photograph shared by the OrganicPlus farming community, 1 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./2.png" alt="Harvest photograph shared by the OrganicPlus farming community, 2 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./3.png" alt="Harvest photograph shared by the OrganicPlus farming community, 3 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./7.png" alt="Harvest photograph shared by the OrganicPlus farming community, 4 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./9.png" alt="Harvest photograph shared by the OrganicPlus farming community, 5 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./10.png" alt="Harvest photograph shared by the OrganicPlus farming community, 6 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./11.png" alt="Harvest photograph shared by the OrganicPlus farming community, 7 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./12.png" alt="Harvest photograph shared by the OrganicPlus farming community, 8 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./13.png" alt="Harvest photograph shared by the OrganicPlus farming community, 9 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./14.png" alt="Harvest photograph shared by the OrganicPlus farming community, 10 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./15.png" alt="Harvest photograph shared by the OrganicPlus farming community, 11 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./16.png" alt="Harvest photograph shared by the OrganicPlus farming community, 12 of 13" width="1080" height="1350" loading="lazy"></figure>
+        <figure><img src="./17.png" alt="Harvest photograph shared by the OrganicPlus farming community, 13 of 13" width="1080" height="1350" loading="lazy"></figure>
+      </div><p class="gallery-note">These are existing farmer photographs and may show our previous Liquid Compost packaging.</p>
+    </div></section>
+    <section class="section how-to" id="how-to-use" aria-labelledby="how-title"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">A SIMPLE ADDITION TO YOUR ROUTINE</p><h2 id="how-title">MIX. APPLY.<br> KEEP GROWING.</h2></div><p>Use Harvest Booster alongside your usual fertiliser or manure. Always follow your pack's directions and the advice for your crop.</p></div>
+      <div class="steps-grid"><article><span class="step-number">01</span><h3>Mix with water.</h3><p>Measure the amount shown on your pack. Mixing rates can differ for soil application, leaf sprays and young plants.</p></article><article><span class="step-number">02</span><h3>Apply as directed.</h3><p>Follow the instructions for your crop and application method. For soil application, focus on the soil around your plants.</p></article><article><span class="step-number">03</span><h3>Keep it in your routine.</h3><p>Repeat at the timing recommended for your crop. A regular programme helps you plan your applications through the season.</p></article></div>
+      <div class="how-note"><span aria-hidden="true">↗</span><p><strong>Different crops need different programmes.</strong> Follow your label and ask OrganicPlus for guidance for your crop and growth stage.</p><a class="text-link" href="#faq">Read the FAQs ↓</a></div>
+    </div></section>
+    <section class="section locator" id="locator" aria-labelledby="locator-title"><div class="container locator-layout">
+      <div class="locator-intro"><p class="eyebrow light">YOUR NEXT HARVEST STARTS HERE</p><h2 id="locator-title">FIND YOUR<br> NEAREST<br> STORE.</h2><p>Look for Harvest Booster at your local OrganicPlus retailer.</p><p class="locator-tip">Some stores may still carry Liquid Compost in the previous pack. Call ahead to check the pack size and stock before travelling.</p><div class="locator-mark" aria-hidden="true">↗</div></div>
+      <div class="locator-panel"><h3>Where are you farming?</h3><p>Choose your area or search for a town or store.</p><div class="locator-filters"><div><label for="divisionSelect">Division</label><select id="divisionSelect" disabled><option value="">All divisions</option></select></div><div><label for="provinceSelect">Province</label><select id="provinceSelect" disabled><option value="">All provinces</option></select></div><div><label for="townSelect">Town / village</label><select id="townSelect" disabled><option value="">All towns / villages</option></select></div></div><div class="search-row"><div class="search-field"><label for="storeSearch">Search stores</label><input type="search" id="storeSearch" placeholder="Try Navua, Labasa or Hop Tiy" autocomplete="off" disabled></div><button class="reset-button" type="button" id="resetStores" disabled>Reset</button></div><div class="store-summary" id="storeSummary" role="status">Loading retailer locations…</div><div class="store-results" id="storeResults" aria-label="Matching retailers"></div><button type="button" class="button button-dark load-more" id="loadMore" hidden>Show more stores <span aria-hidden="true">↓</span></button><noscript><p>Enable JavaScript to search the store list, or <a href="./retailers.csv" download>download the retailer directory</a>.</p></noscript></div>
+    </div></section>
+    <section class="section faq" id="faq" aria-labelledby="faq-title"><div class="container faq-grid"><div><p class="eyebrow">LET'S KEEP IT SIMPLE</p><h2 id="faq-title">GOOD<br> QUESTIONS.</h2><p>The things farmers ask us most.</p></div><div class="faq-list">
+      <details><summary>Is Harvest Booster the same as Liquid Compost?</summary><div class="faq-answer">Yes. Harvest Booster is the new name and packaging for OrganicPlus Liquid Compost. It is the same OrganicPlus product. Existing farmer photos and testimonials may still show or mention Liquid Compost.</div></details>
+      <details><summary>Do I still use my usual fertiliser or manure?</summary><div class="faq-answer">Yes. Use Harvest Booster alongside your usual fertiliser or manure programme. It gives your soil and crops an extra boost; it does not replace the full nutrition your crop needs.</div></details>
+      <details><summary>Which crops can I use it on?</summary><div class="faq-answer">Farmers use OrganicPlus Liquid Compost, now Harvest Booster, on fruiting crops such as watermelon, chillies and eggplant, as well as vegetables, dalo, cassava, ginger, yaqona and fruit trees. Follow the label and the guidance for your crop, especially for seedlings and young plants.</div></details>
+      <details><summary>How much do I mix, and how often do I apply?</summary><div class="faq-answer">Check the directions on your pack and follow the programme recommended for your crop. The strength and timing depend on the crop, its growth stage and whether you are applying to soil or leaves. Use the correct measure each time.</div></details>
+      <details><summary>Should I apply it to the soil or the leaves?</summary><div class="faq-answer">Follow the label for your application method. For soil application, apply around the plants' root zone. Leaf sprays may need a different dilution. Avoid spraying in the hottest part of the day.</div></details>
+      <details><summary>How much will I need for my farm?</summary><div class="faq-answer">This depends on the number of plants, how much mixed solution you apply to each plant and how many applications your crop needs. Have your crop, plant count and spray-tank size ready when asking OrganicPlus for a crop programme.</div></details>
+      <details><summary>Where can I buy Harvest Booster?</summary><div class="faq-answer">Use the <a href="#locator">store finder above</a> to find an OrganicPlus retailer in your area. Call the store before travelling to confirm stock and pack sizes. During the packaging change, some stores may carry the previous Liquid Compost pack.</div></details>
+    </div></div></section>
+    <section class="closing"><div class="container closing-inner"><div><p class="eyebrow light">ORGANICPLUS HARVEST BOOSTER</p><h2>FARM STRONGER.</h2></div><a class="button button-white" href="#locator">Find a store near you <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><a href="#main" aria-label="OrganicPlus, back to top"><img src="./logo.png" alt="OrganicPlus" width="312" height="263" loading="lazy"></a><p>Harvest Booster by Organic Plus (Fiji) Pte Ltd.<br> <span>© <span id="year">2026</span> OrganicPlus. All rights reserved.</span></p><a class="text-link" href="#main">Back to top ↑</a></div></footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

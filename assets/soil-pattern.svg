@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320" fill="none" stroke="#efb6c3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(65 60) rotate(-25)"><rect x="-35" y="-18" width="70" height="36" rx="18"/><path d="M-18-5c13 16 11-13 22 1s11-5 16-1M-11 10l3-3m21 4 3-3M36-7c17-12 22 17 39 3M36 3c20-11 27 18 44 1M36 12c12-3 23 11 32 2"/><circle cx="-21" cy="4" r="2"/></g>
+  <g transform="translate(330 70)"><circle r="30"/><path d="M0-39v8m0 62v8m-39-39h8m62 0h8M-28-28l6 6m44 44 6 6m-56 0 6-6m44-44 6-6M-14-35l3 7m22 56 3 7m-49-21 7-3m56-22 7-3"/><path d="M-12-5c8-12 10 16 20 1m-13 9c3 13 5-6 14 3"/><circle cx="10" cy="-13" r="3"/></g>
+  <g transform="translate(205 230) rotate(30)"><ellipse rx="43" ry="24"/><path d="M-24-7c13-13 10 14 23 0s16 13 25 0M-13 12l5-4m20 4 4-4M-41-9c-17-2-19-17-29-18m28 26c-19 2-22-10-32-6m32 13c-15 8-18 0-28 6"/><circle cx="27" cy="7" r="3"/></g>
+  <g transform="translate(444 245) rotate(-20)"><rect x="-21" y="-42" width="42" height="84" rx="21"/><path d="M-8-23c16 7-11 17 3 24S-8 19 1 26M11-10l-3 4m5 17-4 4"/></g>
+</svg>
