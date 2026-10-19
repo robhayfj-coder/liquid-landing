@@ -63,12 +63,21 @@ function initializeSite() {
   gallery.addEventListener("scroll", updateGallery, { passive: true }); window.addEventListener("resize", updateGallery); updateGallery();
   const division = document.getElementById("divisionSelect"), province = document.getElementById("provinceSelect"), town = document.getElementById("townSelect");
   const search = document.getElementById("storeSearch"), reset = document.getElementById("resetStores"), results = document.getElementById("storeResults"), summary = document.getElementById("storeSummary"), loadMore = document.getElementById("loadMore");
-  let stores = [], limit = 6;
+  const showAll = document.getElementById("showAllStores");
+  let stores = [], limit = 6, browseAll = false;
   function fillSelect(select, items, placeholder) {
     select.replaceChildren(); const option = document.createElement("option"); option.value = ""; option.textContent = placeholder; select.append(option);
     items.forEach((value) => { const item = document.createElement("option"); item.value = value; item.textContent = value; select.append(item); });
   }
   function renderStores() {
+    results.replaceChildren();
+    const active = browseAll || division.value || province.value || town.value || search.value.trim();
+    showAll.hidden = !!active;
+    if (!active) {
+      summary.textContent = `${stores.length} stockists listed across Fiji. Enter your town to find stores in your area.`;
+      loadMore.hidden = true;
+      return;
+    }
     const matches = filterStores(stores, { division: division.value, province: province.value, town: town.value, query: search.value });
     summary.textContent = `${matches.length} ${matches.length === 1 ? "retailer" : "retailers"} found${matches.length > limit ? ` · showing ${limit}` : ""}. Call ahead to confirm stock.`;
     results.replaceChildren();
@@ -88,11 +97,12 @@ function initializeSite() {
   }
   division.addEventListener("change", divisionChanged);
   province.addEventListener("change", () => { fillSelect(town, uniqueValues(filterStores(stores, { division: division.value, province: province.value }), "town"), "All towns / villages"); town.disabled = !province.value; limit = 6; renderStores(); });
-  town.addEventListener("change", () => { limit = 6; renderStores(); }); search.addEventListener("input", () => { limit = 6; renderStores(); });
-  reset.addEventListener("click", () => { division.value = ""; search.value = ""; divisionChanged(); division.focus(); });
+  town.addEventListener("change", () => { limit = 6; renderStores(); }); search.addEventListener("input", () => { browseAll = false; limit = 6; renderStores(); });
+  reset.addEventListener("click", () => { browseAll = false; division.value = ""; search.value = ""; divisionChanged(); search.focus(); });
+  showAll.addEventListener("click", () => { browseAll = true; limit = 6; renderStores(); });
   loadMore.addEventListener("click", () => { const previousCount = results.children.length; limit += 6; renderStores(); results.children[previousCount]?.querySelector("a")?.focus({ preventScroll: true }); });
   fetch("./retailers.csv").then((response) => { if (!response.ok) throw new Error("Retailer directory could not be loaded."); return response.text(); })
-    .then((csv) => { stores = parseCSV(csv); if (!stores.length) throw new Error("Retailer directory is empty."); fillSelect(division, uniqueValues(stores, "division"), "All divisions"); division.disabled = false; search.disabled = false; reset.disabled = false; renderStores(); })
+    .then((csv) => { stores = parseCSV(csv); if (!stores.length) throw new Error("Retailer directory is empty."); fillSelect(division, uniqueValues(stores, "division"), "All divisions"); division.disabled = false; search.disabled = false; reset.disabled = false; showAll.disabled = false; renderStores(); })
     .catch(() => { summary.textContent = "The store finder could not load. Please refresh the page and try again."; const message = document.createElement("p"); message.className = "locator-error"; message.append("You can also "); const download = document.createElement("a"); download.href = "./retailers.csv"; download.download = "OrganicPlus-retailers.csv"; download.textContent = "download the retailer directory"; message.append(download, " to look up a store."); results.replaceChildren(message); });
 }
 if (typeof module !== "undefined" && module.exports) module.exports = { parseCSV, filterStores, uniqueValues, telephoneLink };

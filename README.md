@@ -1,26 +1,28 @@
-# OrganicPlus Harvest Booster
+# Harvest Booster landing page
 
-A buildless landing page for Harvest Booster, formerly Liquid Compost. The existing Vercel project can serve it directly; no package installation, framework change or build command is required.
+Static HTML, CSS and JavaScript for OrganicPlus Fiji. The `harvest-booster` branch is the review preview; keep `main` as the existing production site until approval.
 
-## Files
+The page follows the OrganicPlus marketing playbook: “More flowers. More fruit. More to harvest.” For flowering and fruiting crops, start at first flowers, repeat every 7 days and continue until harvesting finishes. Harvest Booster complements normal fertiliser or manure. Printed packaging retains its supplied artwork; the standalone logo has no tagline. “Better farming made simple.” appears in the surrounding brand copy.
 
-- `index.html`: page sections and copy.
-- `styles.css`: crimson-and-white identity, responsive layouts and reduced-motion settings. Neue Montreal is the preferred font when installed; Arial is the current fallback.
-- `site.js`: navigation, harvest gallery and retailer finder. No third-party JavaScript dependencies.
-- `assets/harvest-booster-5l.png`: the supplied pouch mockup, unchanged.
-- `retailers.csv`: existing retailer directory. Update this file to maintain store information. The finder expects `Division,Province,CityTownVillage,Store Name,Phone`.
-- Existing root-level photographs remain in use.
+## Run checks
 
-## Preview and checks
+```sh
+node --test tests/locator.test.cjs
+node --check site.js
+```
 
-Run a static server from this directory, for example `python -m http.server 8000`, then open `http://localhost:8000`. Serve over HTTP so the retailer CSV can load; opening the HTML directly from disk does not support the store finder.
+Deploy the repository as a static Vercel site: no framework, build command or dependencies. The output directory is the repository root. Git updates to the preview branch should create a new preview deployment.
 
-Run `node --check site.js` and `node --test tests/locator.test.cjs` for JavaScript and retailer-data checks.
+## Store directory
 
-## Review and deployment
+Edit `retailers.csv`, preserving headers `Division,Province,CityTownVillage,Store Name,Phone`. Town/store search is the first step, with optional cascading area filters. The directory is not live stock information. Telephone links use Fiji country code +679. No distance rankings or unverified directions are presented.
 
-Keep the work on `harvest-booster`. With Vercel's Git integration, a push to this branch should create a preview deployment when preview deployments are enabled. Review the mobile and desktop layouts, images, store filters, phone links and FAQ before merging to the production branch.
+## Brand and images
 
-Existing farmer photos and Saiasi's original testimonial retain the Liquid Compost name. The page explains the change to Harvest Booster. Product application instructions defer to the approved pack and crop programme. Confirm retailer stock and any final application rates before publication.
+The supplied 500px logo is preserved exactly in `assets/organicplus-logo-source.png`; CSS displays the visible horizontal lockup without its transparent margins. Neue Montreal WOFF files are converted from the supplied brand fonts. The hero uses a transparent cutout of the supplied pouch, staged with CSS, with the original mockup also retained. Farmer photographs are existing supplied assets, optimised as WebP; they remain attributed to the earlier Liquid Compost name. No simulated farmer testimonials are used.
 
-Before launch, replace `logo.png` if a newer standalone OrganicPlus logo is available, add licensed webfont files if desired, and update the absolute `og:image` URL if the production domain changes from baywaterfiji.com. No analytics, tracking, forms or new data collection are included.
+The former-name mentions are temporary transition copy. Keep label dilution directions as the source of mixing rates. Prices, live stock availability and new results must be confirmed before adding them.
+
+## Responsive review
+
+`/qa/responsive.html` is an unlinked, noindex review page that renders the real landing page at 360, 390, 430 and 1280 CSS-pixel widths. It supports narrow-viewport visual testing; it does not emulate an actual phone, Facebook in-app browser or mobile network. Check those on physical devices before campaign launch. Do not promote the QA page to production when the preview is approved.
