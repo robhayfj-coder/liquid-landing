@@ -7,8 +7,9 @@ The page follows the OrganicPlus marketing playbook: “More flowers. More fruit
 ## Run checks
 
 ```sh
-node --test tests/locator.test.cjs
+node --test tests/*.test.cjs
 node --check site.js
+node --check analytics.js
 ```
 
 Deploy the repository as a static Vercel site: no framework, build command or dependencies. The output directory is the repository root. Git updates to `main` create production deployments. Updates to `harvest-booster` create preview deployments. The existing custom domain is already connected to Vercel; baywaterfiji.com redirects to www.baywaterfiji.com.
@@ -32,3 +33,18 @@ On the `harvest-booster` preview branch, `/qa/responsive.html` is an unlinked, n
 The October 2026 preview passed all six Node retailer tests and the JavaScript syntax check. Live browser review covered 360, 390 and 430px iframe viewports and a 1280px desktop iframe. No horizontal document overflow was found; all displayed images loaded. Checked store search (Hop Tiy and its +679 call link), no-results handling, reset, browsing all 65 stores, loading 6 then 12, and Central → Serua → Navua filtering (4 results). Also checked mobile navigation, the weekly-use FAQ and the photo-gallery arrows. Browser extension metadata errors were excluded from app results.
 
 Physical phone, iOS/Android keyboard and Facebook in-app browser testing remain before campaign launch.
+
+## Website tracking
+
+`analytics.js` loads Google Analytics 4 (`G-L75K1MQ8L3`) and Meta Pixel (`2387761571964957`) asynchronously, only on `www.baywaterfiji.com` or `baywaterfiji.com`. Localhost and Vercel preview domains send no analytics. It runs before `site.js`; page views are initialized once, with subsequent interactions sent as GA4 events and Meta custom events using the same names. The IDs are public identifiers, not credentials. No server-side Conversions API is installed.
+
+| Event | Trigger | Parameters |
+| --- | --- | --- |
+| `find_store_click` | A link to the store finder is tapped | `placement` (hero, header, mobile_sticky, closing, faq) |
+| `store_search` | Search/filter settles for 800ms, or text search is committed by blur/Enter; pending state is flushed before a retailer call or page hide | `search_method`, `result_count`, selected directory-backed `division`, `province`, `town` |
+| `retailer_call_click` | A retailer telephone link is tapped | `store_name`, `town`, `province`, `division` |
+| `store_browse` | Browse all stores is tapped | `result_count` |
+
+Free-text queries and retailer phone numbers are not included in custom event parameters. Repeated identical searches are deduplicated until the criteria change or Reset is pressed. Initial directory loading and Show more do not generate search events. A search with zero matches is still measured. A telephone tap measures intent, not a completed call or purchase; do not assign purchase revenue to it. Use consistently tagged campaign URLs to distinguish testimonial and still-image ads.
+
+Verify delivery in Meta Events Manager's Test Events and GA4 Realtime. Mark the chosen events as key events in GA4 and configure Meta custom conversions separately in those accounts if needed; website installation does not change account settings. Tracking requires JavaScript and may be blocked by browser privacy settings or ad blockers. Keep the site's privacy disclosures and consent configuration aligned with how these tools are used.
