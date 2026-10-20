@@ -16,6 +16,8 @@ Deploy the repository as a static Vercel site: no framework, build command or de
 
 ## Store directory
 
+After changing the directory, run `node scripts/build-directory.cjs` to refresh the expandable HTML directory, then run the tests. The committed HTML must match the CSV so search engines and visitors without JavaScript can read the same stores.
+
 Edit `retailers.csv`, preserving headers `Division,Province,CityTownVillage,Store Name,Phone`. Town/store search is the first step, with optional cascading area filters. The directory is not live stock information. Telephone links use Fiji country code +679. No distance rankings or unverified directions are presented.
 
 ## Brand and images
@@ -48,3 +50,11 @@ Physical phone, iOS/Android keyboard and Facebook in-app browser testing remain 
 Free-text queries and retailer phone numbers are not included in custom event parameters. Repeated identical searches are deduplicated until the criteria change or Reset is pressed. Initial directory loading and Show more do not generate search events. A search with zero matches is still measured. A telephone tap measures intent, not a completed call or purchase; do not assign purchase revenue to it. Use consistently tagged campaign URLs to distinguish testimonial and still-image ads.
 
 Verify delivery in Meta Events Manager's Test Events and GA4 Realtime. Mark the chosen events as key events in GA4 and configure Meta custom conversions separately in those accounts if needed; website installation does not change account settings. Tracking requires JavaScript and may be blocked by browser privacy settings or ad blockers. Keep the site's privacy disclosures and consent configuration aligned with how these tools are used.
+
+## Search visibility
+
+The production homepage uses a Fiji-specific title and description, a self-referencing canonical URL, matching share metadata, and Organization/WebSite/WebPage JSON-LD. The approved campaign heading and usage guidance are retained. Retailer names, towns and call links are present in a native expandable HTML directory; the interactive finder remains the primary journey. Retailers are independent stockists and are not marked up as OrganicPlus-owned branches. There are no fabricated prices, ratings, certifications or stock claims, and no FAQ/Product rich-result eligibility claims.
+
+`robots.txt` allows crawling and points to `sitemap.xml`, which lists only the canonical homepage. When materially updating the page, keep the sitemap's lastmod accurate. A sitemap helps discovery but does not guarantee indexing or rankings. There are no separate town/crop pages yet; do not create duplicated location pages for every town.
+
+Use Google Search Console to verify `https://www.baywaterfiji.com/` (or verify the full domain via DNS). Submit `sitemap.xml` and inspect/request indexing of the homepage. GA4 ownership verification may be available for an account with the necessary Analytics permissions; otherwise add Google's exact verification tag when supplied by the site owner. No Search Console verification token or account change is included in this release. Monitor impressions, clicks, queries and mobile performance there; the GA4/Meta events measure the subsequent store-finder journey.

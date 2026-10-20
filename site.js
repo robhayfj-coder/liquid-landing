@@ -41,6 +41,12 @@ function trackStoreEvent(name, parameters) {
   window.HarvestAnalytics?.track(name, parameters);
 }
 function initializeSite() {
+  document.querySelectorAll("[data-directory-phone]").forEach((link) => {
+    link.addEventListener("click", () => trackStoreEvent("retailer_call_click", {
+      store_name: link.dataset.storeName, town: link.dataset.town,
+      province: link.dataset.province, division: link.dataset.division, source: "full_directory"
+    }));
+  });
   document.querySelectorAll('a[href="#locator"]').forEach((link) => {
     link.addEventListener("click", () => {
       const placement = link.closest(".mobile-store-bar") ? "mobile_sticky"
