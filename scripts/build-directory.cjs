@@ -16,13 +16,6 @@ function renderDirectory(stores) {
 const start = '<!-- STOCKIST-DIRECTORY:START -->';
 const end = '<!-- STOCKIST-DIRECTORY:END -->';
 if (require.main === module) {
-  const index = resolve(root, 'index.html');
-  const html = readFileSync(index, 'utf8');
-  const from = html.indexOf(start), to = html.indexOf(end);
-  if (from < 0 || to <= from) throw new Error('Stockist directory markers missing or invalid.');
-  const stores = parseCSV(readFileSync(resolve(root, 'retailers.csv'), 'utf8'));
-  if (!stores.length) throw new Error('Retailer directory is empty.');
-  writeFileSync(index, html.slice(0, from + start.length) + '\n' + renderDirectory(stores) + '\n' + html.slice(to));
-  console.log(`Updated crawlable directory: ${stores.length} stockists.`);
+  require('./build-preview.cjs').build();
 }
 module.exports = { renderDirectory, start, end };

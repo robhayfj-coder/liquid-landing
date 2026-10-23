@@ -7,7 +7,7 @@ const { renderDirectory, start, end } = require('../scripts/build-directory.cjs'
 const read = path => readFileSync(resolve(__dirname, '..', path), 'utf8');
 const decode = text => text.replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
 test('every CSV retailer has one matching crawlable call link and location, without JavaScript', () => {
-  const html = read('index.html');
+  const html = read('harvest-booster/index.html');
   const directory = html.slice(html.indexOf(start), html.indexOf(end));
   const links = [...directory.matchAll(/<a\b[^>]*data-directory-phone[^>]*>/g)].map(match => Object.fromEntries([...match[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(([,k,v])=>[k,decode(v)])));
   const expected = parseCSV(read('retailers.csv')).map(s => [s.name,s.town,s.province,s.division,telephoneLink(s.phone)].join('|')).sort();

@@ -1,4 +1,3 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://www.baywaterfiji.com/sitemap.xml
+Disallow: /
+# Review preview. Restore production crawling rules before launch.

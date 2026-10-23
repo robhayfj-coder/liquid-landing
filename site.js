@@ -38,16 +38,19 @@ function telephoneLink(phone) {
   return null;
 }
 function trackStoreEvent(name, parameters) {
-  window.HarvestAnalytics?.track(name, parameters);
+  window.HarvestAnalytics?.track(name, { page_type: document.body.dataset.page || "product", product: document.body.dataset.product || "harvest_booster", ...parameters });
 }
 function initializeSite() {
+  document.querySelectorAll("[data-product-link]").forEach((link) => {
+    link.addEventListener("click", () => trackStoreEvent("product_view_click", { target_product: link.dataset.productLink }));
+  });
   document.querySelectorAll("[data-directory-phone]").forEach((link) => {
     link.addEventListener("click", () => trackStoreEvent("retailer_call_click", {
       store_name: link.dataset.storeName, town: link.dataset.town,
       province: link.dataset.province, division: link.dataset.division, source: "full_directory"
     }));
   });
-  document.querySelectorAll('a[href="#locator"]').forEach((link) => {
+  document.querySelectorAll('[data-store-link], a[href="#locator"]').forEach((link) => {
     link.addEventListener("click", () => {
       const placement = link.closest(".mobile-store-bar") ? "mobile_sticky"
         : link.closest("header") ? "header" : link.closest(".hero") ? "hero"
@@ -63,6 +66,7 @@ function initializeSite() {
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !mobileNav.hidden) { closeMenu(); menuToggle.focus(); } });
   window.matchMedia("(min-width: 851px)").addEventListener("change", (event) => { if (event.matches) closeMenu(); });
   const gallery = document.getElementById("harvestGallery"), previous = document.getElementById("galleryPrev"), next = document.getElementById("galleryNext"), position = document.getElementById("galleryPosition");
+  if (gallery && previous && next && position) {
   const figures = Array.from(gallery.querySelectorAll("figure"));
   function updateGallery() {
     const left = Math.max(0, gallery.scrollLeft), cardWidth = figures[0].getBoundingClientRect().width, gap = parseFloat(window.getComputedStyle(gallery).gap) || 0;
@@ -78,9 +82,11 @@ function initializeSite() {
   previous.addEventListener("click", () => moveGallery(-1)); next.addEventListener("click", () => moveGallery(1));
   gallery.addEventListener("keydown", (event) => { if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); moveGallery(event.key === "ArrowRight" ? 1 : -1); } });
   gallery.addEventListener("scroll", updateGallery, { passive: true }); window.addEventListener("resize", updateGallery); updateGallery();
+  }
   const division = document.getElementById("divisionSelect"), province = document.getElementById("provinceSelect"), town = document.getElementById("townSelect");
   const search = document.getElementById("storeSearch"), reset = document.getElementById("resetStores"), results = document.getElementById("storeResults"), summary = document.getElementById("storeSummary"), loadMore = document.getElementById("loadMore");
   const showAll = document.getElementById("showAllStores");
+  if (!search || !division || !results || !showAll) return;
   let stores = [], limit = 6, browseAll = false;
   let searchTimer, lastSearchKey = "";
   function reportStoreSearch(method) {
@@ -146,9 +152,9 @@ function initializeSite() {
   reset.addEventListener("click", () => { clearTimeout(searchTimer); lastSearchKey = ""; browseAll = false; division.value = ""; search.value = ""; divisionChanged(); search.focus(); });
   showAll.addEventListener("click", () => { browseAll = true; limit = 6; renderStores(); trackStoreEvent("store_browse", { result_count: stores.length }); });
   loadMore.addEventListener("click", () => { const previousCount = results.children.length; limit += 6; renderStores(); results.children[previousCount]?.querySelector("a")?.focus({ preventScroll: true }); });
-  fetch("./retailers.csv").then((response) => { if (!response.ok) throw new Error("Retailer directory could not be loaded."); return response.text(); })
+  fetch("/retailers.csv").then((response) => { if (!response.ok) throw new Error("Retailer directory could not be loaded."); return response.text(); })
     .then((csv) => { stores = parseCSV(csv); if (!stores.length) throw new Error("Retailer directory is empty."); fillSelect(division, uniqueValues(stores, "division"), "All divisions"); division.disabled = false; search.disabled = false; reset.disabled = false; showAll.disabled = false; renderStores(); })
-    .catch(() => { summary.textContent = "The store finder could not load. Please refresh the page and try again."; const message = document.createElement("p"); message.className = "locator-error"; message.append("You can also "); const download = document.createElement("a"); download.href = "./retailers.csv"; download.download = "OrganicPlus-retailers.csv"; download.textContent = "download the retailer directory"; message.append(download, " to look up a store."); results.replaceChildren(message); });
+    .catch(() => { summary.textContent = "The store finder could not load. Please refresh the page and try again."; const message = document.createElement("p"); message.className = "locator-error"; message.append("You can also "); const download = document.createElement("a"); download.href = "/retailers.csv"; download.download = "OrganicPlus-retailers.csv"; download.textContent = "download the retailer directory"; message.append(download, " to look up a store."); results.replaceChildren(message); });
 }
 if (typeof module !== "undefined" && module.exports) module.exports = { parseCSV, filterStores, uniqueValues, telephoneLink };
 if (typeof document !== "undefined") initializeSite();
