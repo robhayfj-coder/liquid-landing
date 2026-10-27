@@ -38,3 +38,9 @@ This is a deliberately non-indexable preview: generated pages have `noindex,foll
 Confirm Growth Booster's final product promise, trigger, application programme and launch availability before publishing fuller product guidance. Confirm future contact information before adding channels beyond the verified OrganicPlus Fiji Facebook page.
 
 A later OrganicPlus Pacific domain migration is a separate release and is not included in this preview.
+
+## 27 October preview revision
+
+The homepage hero now gives each product a separate non-overlapping panel with its role, name, availability and link. Growth Booster remains Coming soon. Cleaned transparent pouch assets replace white-background mockups throughout the preview. Their background extraction was performed with the built-in image editing tool; website CSS supplies the stage colors and shadows.
+
+The short homepage About Us section expands on the Fiji origin, food-production by-product inputs, controlled biological production, farmer guidance and the playbook's science-to-practical-use positioning. The detailed About page expands the same narrative. The phrase "our journey began in Fiji in 2020" refers to the venture's start, not a claim about the current company's incorporation date. Source for the year and public process overview: Robert Hay's interview in The Fiji Times, 26 October 2023, https://www.fijitimes.com.fj/company-showcases-innovative-liquid-compost-solution/. No proprietary recipe is published.
